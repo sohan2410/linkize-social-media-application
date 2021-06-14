@@ -6,6 +6,7 @@ const {
   newprofilepic,
   profile,
   createnewpost,
+  getallposts,
 } = require("../controllers/post");
 const { verifyToken } = require("../middlewares/verifyToken");
 const app = express();
@@ -16,5 +17,5 @@ router.post("/newprofilepic", newprofilepic);
 router.post("/getpics", verifyToken, getpics);
 router.get("/profile/:username", profile);
 router.post("/createnewpost", verifyToken, createnewpost);
-
+router.get("/getallposts", getallposts);
 module.exports = router;

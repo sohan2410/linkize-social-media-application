@@ -84,38 +84,38 @@ likeIcon.addEventListener("click", () => {
 });
 window.addEventListener("load", () => {
   body.classList.add("visible");
-  const fullname = document.querySelector(".nameBackend");
+    const fullname = document.querySelector(".nameBackend");
 
-  const token = localStorage.getItem("jwt");
-  const googleauthtoken = localStorage.getItem("googleauthtoken");
-  if (token === null && googleauthtoken === null) {
-    location.href = "/pages/signin/signin.html";
-  } else {
     const token = localStorage.getItem("jwt");
     const googleauthtoken = localStorage.getItem("googleauthtoken");
-    fetch(`${apiURL}/posts/getpics`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: token,
-        googleauthtoken: googleauthtoken,
-      },
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        fullname.innerHTML = data.firstname + " " + data.lastname;
-        const img = document.querySelectorAll(".profileImageBackend");
-        var i;
-        for (i = 0; i < img.length; i++) {
-          img[i].src = data.data;
-        }
+    if (token === null && googleauthtoken === null) {
+      location.href = "/pages/signin/signin.html";
+    } else {
+      const token = localStorage.getItem("jwt");
+      const googleauthtoken = localStorage.getItem("googleauthtoken");
+      fetch(`${apiURL}/posts/getpics`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: token,
+          googleauthtoken: googleauthtoken,
+        },
       })
-      .catch((err) => {
-        alert("Error Fetching data");
-        console.log(err);
-      });
-  }
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+          fullname.innerHTML = data.firstname + " " + data.lastname;
+          const img = document.querySelectorAll(".profileImageBackend");
+          var i;
+          for (i = 0; i < img.length; i++) {
+            img[i].src = data.data;
+          }
+        })
+        .catch((err) => {
+          alert("Error Fetching data");
+          console.log(err);
+        });
+    }
 });
 
 sharePostButton.addEventListener("click", () => {
@@ -160,3 +160,180 @@ profileImageTopBarContainer.addEventListener("click", () => {
 //     });
 //   }
 // });
+
+async function myposts() {
+  fetch(`${apiURL}/posts/getallposts`, {
+    method: "GET",
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log(data.temp);
+      const xyz = data.temp;
+      xyz.forEach((obj) => {
+        // console.log(obj.firstname);
+        const left = document.querySelector(".left");
+
+        const displayPost = document.createElement("div");
+        displayPost.className = "DisplayPost";
+
+        const navDisplayPost = document.createElement("div");
+        navDisplayPost.className = "navDisplayPost";
+
+        const profilePic = document.createElement("div");
+        profilePic.className =
+          "profileImageTopBarContainer makePostProfileImage displayPostProfileImage";
+
+        
+        navDisplayPost.append(profilePic);
+
+        const ProfileDescription = document.createElement("div");
+        ProfileDescription.className = "ProfileDescription";
+
+        const profileName = document.createElement("h1");
+        profileName.className = "profileName";
+        profileName.innerHTML =" Sohan bro"
+        ProfileDescription.appendChild(profileName);
+        ProfileDescription.innerHTML =`<h1>${obj.firstname} ${obj.lastname}</h1>`
+
+        ProfileDescription.innerHTML += `<p>Founder | Amazon</p>`;
+
+        navDisplayPost.append(ProfileDescription);
+        const img = document.createElement("img");
+        profilePic.append(img);
+
+        
+        // PostImageContainer
+        const PostImageContainer = document.createElement("div");
+        PostImageContainer.className = "PostImageContainer";
+
+        const img2 = document.createElement("img");
+        PostImageContainer.append(img2);
+        img2.src=obj.postspic;
+
+        const captionContainer = document.createElement("div");
+        captionContainer.className = "captionContainer";
+
+        const caption = document.createElement("div");
+        caption.className = "caption";
+        caption.innerHTML=`${obj.content}`;
+        captionContainer.appendChild(caption);
+
+        const readMore = document.createElement("div");
+        readMore.className = "readMore";
+        captionContainer.appendChild(readMore);
+
+        const lineSeperation = document.createElement("div");
+        lineSeperation.className = "lineSeperation";
+
+        const likeSection = document.createElement("div");
+        likeSection.className = "likeSection";
+
+        const like = document.createElement("div");
+        like.className = "like";
+
+        const likeIcon = document.createElement("span");
+        likeIcon.className = "likeIcon";
+        likeIcon.innerHTML = `<i class="far fa-lightbulb"></i>`;
+        like.appendChild(likeIcon);
+
+        const LikeNumber = document.createElement("div");
+        LikeNumber.className = "LikeNumber";
+        LikeNumber.innerText = "0";
+        like.appendChild(LikeNumber);
+
+        const commentSection = document.createElement("div");
+        commentSection.className = "commentSection";
+        commentSection.innerHTML = `<i class="far fa-comment"></i>`;
+
+        likeSection.appendChild(like);
+
+        likeSection.appendChild(commentSection);
+
+        displayPost.append(navDisplayPost);
+        displayPost.append(PostImageContainer);
+        displayPost.append(captionContainer);
+        displayPost.append(lineSeperation);
+        displayPost.append(likeSection);
+        left.append(displayPost);
+
+        img.src=obj.profilepic;
+      });
+    });
+  // const left = document.querySelector(".left");
+
+  // const displayPost = document.createElement("div");
+  // displayPost.className = "DisplayPost";
+
+  // const navDisplayPost = document.createElement("div");
+  // navDisplayPost.className = "navDisplayPost";
+
+  // const profilePic = document.createElement("div");
+  // profilePic.className =
+  //   "profileImageTopBarContainer makePostProfileImage displayPostProfileImage";
+  // navDisplayPost.append(profilePic);
+
+  // const ProfileDescription = document.createElement("div");
+  // ProfileDescription.className = "ProfileDescription";
+
+  // const profileName = document.createElement("h1");
+  // profileName.className = "profileName";
+  // ProfileDescription.appendChild(profileName);
+  // ProfileDescription.innerHTML = `Founder | Amazon`;
+
+  // navDisplayPost.append(ProfileDescription);
+  // const img = document.createElement("img");
+  // profilePic.append(img);
+
+  // // PostImageContainer
+  // const PostImageContainer = document.createElement("div");
+  // PostImageContainer.className = "PostImageContainer";
+
+  // const img2 = document.createElement("img");
+  // PostImageContainer.append(img2);
+
+  // const captionContainer = document.createElement("div");
+  // captionContainer.className = "captionContainer";
+
+  // const caption = document.createElement("div");
+  // caption.className = "caption";
+  // captionContainer.appendChild(caption);
+
+  // const readMore = document.createElement("div");
+  // readMore.className = "readMore";
+  // captionContainer.appendChild(readMore);
+
+  // const lineSeperation = document.createElement("div");
+  // lineSeperation.className = "lineSeperation";
+
+  // const likeSection = document.createElement("div");
+  // likeSection.className = "likeSection";
+
+  // const like = document.createElement("div");
+  // like.className = "like";
+
+  // const likeIcon = document.createElement("span");
+  // likeIcon.className = "likeIcon";
+  // likeIcon.innerHTML = `<i class="far fa-lightbulb"></i>`;
+  // like.appendChild(likeIcon);
+
+  // const LikeNumber = document.createElement("div");
+  // LikeNumber.className = "LikeNumber";
+  // LikeNumber.innerText = "0";
+  // like.appendChild(LikeNumber);
+
+  // const commentSection = document.createElement("div");
+  // commentSection.className = "commentSection";
+  // commentSection.innerHTML = `<i class="far fa-comment"></i>`;
+
+  // likeSection.appendChild(like);
+
+  // likeSection.appendChild(commentSection);
+
+  // displayPost.append(navDisplayPost);
+  // displayPost.append(PostImageContainer);
+  // displayPost.append(captionContainer);
+  // displayPost.append(lineSeperation);
+  // displayPost.append(likeSection);
+  // left.append(displayPost);
+}
+myposts();

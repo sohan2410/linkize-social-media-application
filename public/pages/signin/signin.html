@@ -39,7 +39,12 @@
             </div>
             <input type="submit" value="Login" class="btn solid loginButton" />
             <p class="social-text">Or Sign in with Google</p>
-            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="150px"></div>
+            <div
+              class="g-signin2"
+              data-onsuccess="onSignIn"
+              data-theme="dark"
+              data-width="150px"
+            ></div>
             <!-- <a href="#" onclick="signOut();">Sign out</a> -->
             <!-- <div class="social-media">
               <a data-onsuccess="onSignIn" class="social-icon">
@@ -127,6 +132,7 @@
         var xhr = new XMLHttpRequest();
         // const apiUrl = "https://still-fortress-53995.herokuapp.com";
         xhr.open("POST", "http://localhost:8000/auth/googleauth");
+        // xhr.open("POST", "https://still-fortress-53995.herokuapp.com/auth/googleauth");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onload = function () {
           const temp = JSON.parse(xhr.responseText);
