@@ -181,7 +181,7 @@ main {
 .dots {
   margin-top: 1%;
   width: 10%;
-  height: 3rem;
+  height: 2rem;
   justify-content: space-evenly;
   align-items: center;
   display: flex;
@@ -336,4 +336,312 @@ main {
   justify-content: center;
   font-size: 1.6rem;
   font-weight: 700;
+}
+
+@media screen and (max-width:1400px){
+  #getStarted{
+    width: 30%;
+  }  
+  #signup{
+    width: 35%;
+  }
+  .left > img{
+    margin-left: 60%;
+  }
+}
+@media screen and (max-width:1300px){
+  html{
+    font-size: 50%;
+  }
+}
+@media screen and (max-width:1100px){
+  .mainImage{
+    margin-top: 5%;
+  }
+  .section3SecondBox{
+
+    padding-left: 5%;
+    padding-right: 2%;
+  }
+  .secondBoxLeft2{
+    width: 45%;
+  }
+}
+@media screen and (max-width: 1024px){
+  main{
+    flex-direction: column;
+    align-items: center;
+  }
+  #getStarted{
+    display: none;
+  }
+  .leftContainer{
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    margin-top: 3%;
+    padding-left: 0%;
+
+  }
+  .description{
+    text-align: center;
+    width: 50%;
+  }
+  .mainImage{
+    margin-top: 0%;
+  }
+  .typingText{
+    justify-content: center;
+  }
+  .section3Top{
+    margin-top: 5%;
+  }
+  #signup{
+    width: 40%;
+  }
+}
+@media screen and (max-width: 980px){
+  .section3Top{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+  }
+  .section3SubHeading{
+    width : 80%;
+    align-self: center;
+  }
+}
+@media screen and (max-width: 920px){
+  .section3SecondBox{
+    justify-content: space-between;
+    padding: 0%;
+  }
+}
+@media screen and (max-width: 870px){
+  .section3Top{
+    width: 50%;
+  }
+  .secondBoxRight2{
+    height: 90%;
+  }
+  #signup{
+    width : 45%;
+  }
+}
+@media screen and (max-width: 818px){
+  .secondBoxLeft2{
+    width: 45%;
+  }
+  .leftFirst{
+    height: 80%;
+  }
+  .leftFirst > img{
+    height: 100%;
+    width: auto;
+  }
+}
+@media screen and (max-width: 770px){
+  .section3Top{
+    width: 80%;
+    margin-top:7%;
+  }
+  .rightFirst{
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
+  }
+  .section3{
+    height: 160vh;
+  }
+  .firstBoxRight, .secondBoxRight{
+    width: 80%;
+    align-self: center;
+  }
+  .secondBoxRight{
+    margin-top: 5%;
+  }
+  .section3FirstBox{
+    height: 80vh;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .section3SubHeading{
+    width: 70%;
+  }
+  .section3SecondBox{
+    flex-direction: column;
+    height: 30%;
+    justify-content: space-around;
+  }
+  .secondBoxRight2{
+    width: 90%;
+    justify-content: center;
+    display: flex;
+  }
+  .right{
+    width: 40%;
+    justify-content: space-evenly;
+  }
+  .secondBoxLeft2{
+    width : 80%;
+  }
+  .firstDescription{
+    margin-top:5%;
+  }
+  .description{
+    width: 65%;
+  }
+}
+@media screen and (max-width: 637px){
+  .mainImage{
+    width: 85%;
+  }
+  .mainImage > img{
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 608px){
+  .mainContainer{
+    background  :white;
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+  .leftContainer{
+    margin-top: 8%;
+  }
+  .text{
+    margin-top: 2%;
+  }
+  .description{
+    margin-top: 3%;
+  } 
+  #getStarted{
+    display: flex;
+    margin-top:30%;
+  }
+  #signup{
+    display: none;
+  }
+  .right{
+    justify-content: flex-end;
+    padding-right: 8%;
+  }
+  .left > img{
+    margin-left: 48%;
+  }
+  .section3Top{
+    margin-top: 10%;
+  }
+  .section3MainHeading{
+    font-size: 3.7rem;
+  }
+  .section3SubHeading{
+    font-size: 2rem;
+  }
+  .firstHeading{
+    font-size: 2rem;
+  }
+  .firstDescription{
+    font-size: 1.6rem;
+  }
+  .leftFirst{
+    width: 80%;
+  }
+  .leftFirst > img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 516px){
+  .text{
+    font-size: 3.5rem;
+  }
+  .preloader > img{
+    width: 20%;
+  }
+  .dots{
+    width: 30%;
+    margin-top: 5%;
+  }
+}
+@media screen and (max-width: 452px){
+  html{
+    font-size: 40%;
+  }
+  .bodyContainer{
+    height : 80%;
+  }
+  .rightFirst{
+    margin-top: 10%;
+  }
+  .left{
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 15%;
+  }
+  .section3FirstBox{
+    height: 40%;
+  }
+  .leftFirst{
+    height: 40%;
+    width : 50%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content:center;
+  }
+  .bodyContainer{
+    height: 100vh;
+  }
+  .leftFirst > img{
+    width: 100%;
+    height: auto;
+  }
+  #login{
+    margin-right: 10%;
+  }
+  .section3{
+    height : 100vh;
+  }
+  .section3SecondBox{
+    margin-top: 5%;
+    height: 40%;
+  }
+  .secondBoxLeft2{
+    margin-top: 10%;
+    height: 20%;
+  }
+  .secondBoxRight2{
+    width: 60%;
+    height: 60%;
+  }
+  .secondBoxRight2 > img{
+    width : 100%;
+    height: 100%;
+  }
+  .topBar{
+    justify-content : space-between;
+    padding : 0%;
+    margin-top: 0%;
+  }
+  .left{
+    margin-left: 11%;
+  }
+}
+@media screen and (max-width: 414px){
+
+  .left{
+    height: 90%;
+  }
+  .left > img{
+    height : 100%;
+  }
 }

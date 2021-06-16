@@ -254,7 +254,7 @@ async function myposts() {
         displayPost.append(captionContainer);
         displayPost.append(lineSeperation);
         displayPost.append(likeSection);
-        left.append(displayPost);
+        left.appendChild(displayPost);
 
         img.src=obj.profilepic;
       });

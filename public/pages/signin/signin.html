@@ -17,7 +17,7 @@
     ></script>
     <link rel="stylesheet" href="./signin.css" />
 
-    <title>Sign in & Sign up Form</title>
+    <title>SignIn/Register | Linkize</title>
   </head>
   <body>
     <div class="container">
@@ -79,7 +79,7 @@
               />
             </div>
             <input type="submit" class="btn signupButton" value="Sign up" />
-            <p class="social-text">Or Sign up with social platforms</p>
+            <!-- <p class="social-text">Or Sign up with social platforms</p> -->
             <!-- <div class="social-media">
               <a href="#" class="social-icon">
                 <i class="fab fa-google"></i>
@@ -138,7 +138,7 @@
           const temp = JSON.parse(xhr.responseText);
           // console.log("Signed in as: " + xhr.responseText);
           localStorage.setItem("googleauthtoken", temp.googletoken);
-          // location.href = "/pages/feed/feed.html";
+          location.href = "/pages/feed/feed.html";
         };
         xhr.send(
           JSON.stringify({
